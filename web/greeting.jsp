@@ -13,23 +13,23 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1></h1>
-        <p>
-        <%
-            
-        Object obj = request.getAttribute("greeting");
-        String string = null;
+            <%
 
-        if(obj == null) {
-           string = "No name found.";
-        } else {
-            string = (String)obj;
-        }
-        
-        out.print(request.getAttribute("greeting"));
-        
-            
-            
+                Object obj = request.getAttribute("greeting");
+                String string = null;
+
+                if (obj == null) {
+                    out.print("No name found.");
+                } else {
+                    string = (String)obj;
+                    if (string.length() == 0) {
+                        out.print("No name found");
+                    } else {
+                        out.print(request.getAttribute("greeting"));
+                    }
+                }
+
+
             %>
     </body>
 </html>
